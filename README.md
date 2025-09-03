@@ -6,7 +6,7 @@ Fork of kickstart.nvim simplified and with vim-plug instead of Lazy.
 
 ### Install Neovim
 
-['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest
+[stable](https://github.com/neovim/neovim/releases/tag/stable)
 
 ### Install External Dependencies
 
