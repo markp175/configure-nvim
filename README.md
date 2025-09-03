@@ -1,6 +1,6 @@
 # kickstart.nvim
 
-Fork of kickstart.nvim simplified and with vim-plug instead of Lazy.
+Fork of kickstart.nvim, for Ubuntu, simplified and with vim-plug instead of Lazy.
 
 ## Installation
 
@@ -13,8 +13,7 @@ Fork of kickstart.nvim simplified and with vim-plug instead of Lazy.
 Requirements:
 - Install additional tools not included in Ubuntu: sudo apt-get install ripgrep fd-find
 - Check that the following list of tools are installed: git make unzip gcc xclip
-- Clipboard tool (xclip/xsel/win32yank or other depending on the platform)
-- A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
+- A [Nerd Font](https://www.nerdfonts.com/), provides various icons
 - Language Setup:
   - If you want to write Typescript, you need `npm`
   - If you want to write Golang, you will need `go`
@@ -27,24 +26,20 @@ Requirements:
 
 Neovim's configurations are located:
 
-| OS | PATH |
-| :- | :--- |
-| Linux | `$XDG_CONFIG_HOME/nvim`, `~/.config/nvim` |
+`~/.config/nvim`
 
-
-#### Recommended Step
+#### Recommended
 
 [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo
 so that you have your own copy that you can modify, then install by cloning the
-fork to your machine using one of the commands below, depending on your OS.
+fork to your machine.
 
 > [!NOTE]
-> Your fork's URL will be something like this:
-> `https://github.com/<your_github_username>/kickstart.nvim.git`
+> Your fork's URL:
+> `https://github.com/<your_github_username>/kickstart.nvim`
 
-You likely want to remove `lazy-lock.json` from your fork's `.gitignore` file
-too - it's ignored in the kickstart repo to make maintenance easier, but it's
-[recommended to track it in version control](https://lazy.folke.io/usage/lockfile).
+You should remove `lazy-lock.json` from your fork's `.gitignore` file
+too [recommended to track it in version control](https://lazy.folke.io/usage/lockfile).
 
 #### Clone kickstart.nvim
 
