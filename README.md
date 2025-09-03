@@ -43,14 +43,9 @@ too [recommended to track it in version control](https://lazy.folke.io/usage/loc
 
 #### Clone kickstart.nvim
 
-<details><summary> Linux </summary>
-
 ```sh
 git clone https://github.com/<your_github_username>/kickstart.nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
-
-</details>
-
 ### Post Installation
 
 Start Neovim
