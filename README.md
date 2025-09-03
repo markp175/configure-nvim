@@ -30,7 +30,7 @@ Neovim's configurations are located:
 
 #### Recommended
 
-[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo
+[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the original repo
 so that you have your own copy that you can modify, then install by cloning the
 fork to your machine.
 
@@ -46,7 +46,7 @@ too [recommended to track it in version control](https://lazy.folke.io/usage/loc
 <details><summary> Linux </summary>
 
 ```sh
-git clone https://github.com/<your_github_username>/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/<your_github_username>/kickstart.nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 </details>
@@ -55,12 +55,12 @@ git clone https://github.com/<your_github_username>/kickstart.nvim.git "${XDG_CO
 
 Start Neovim
 
-### Getting Started
+### Questions
 
-* What should I do if I already have a pre-existing Neovim configuration?
-  * You should back it up and then delete all associated files.
-  * This includes your existing init.lua and the Neovim files in `~/.local`
-    which can be deleted with `rm -rf ~/.local/share/nvim/`
+* What should I do if I already have an existing configuration?
+  * Back it up and delete all associated files.
+  * This includes your init.lua and the Neovim files in `~/.local`
+    delete with `rm -rf ~/.local/share/nvim/`
 * Can I keep my existing configuration in parallel to kickstart?
   * Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
     to maintain multiple configurations. For example, you can install the kickstart
@@ -70,7 +70,6 @@ Start Neovim
     ```
     When you run Neovim using `nvim-kickstart` alias it will use the alternative
     config directory and the matching local directory
-    `~/.local/share/nvim-kickstart`. You can apply this approach to any Neovim
-    distribution that you would like to try out.
+    `~/.local/share/nvim-kickstart`.
 * What if I want to "uninstall" this configuration:
   * See [lazy.nvim uninstall](https://lazy.folke.io/usage#-uninstalling) information
