@@ -1,4 +1,4 @@
-# kickstart.nvim
+# configure-nvim
 
 Fork of kickstart.nvim, for Ubuntu with vim-plug instead of Lazy.
 
