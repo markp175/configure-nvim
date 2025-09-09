@@ -1,6 +1,6 @@
 # kickstart.nvim
 
-Fork of kickstart.nvim, for Ubuntu, simplified and with vim-plug instead of Lazy.
+Fork of kickstart.nvim, for Ubuntu with vim-plug instead of Lazy.
 
 ## Installation
 
@@ -12,14 +12,13 @@ Fork of kickstart.nvim, for Ubuntu, simplified and with vim-plug instead of Lazy
 
 Requirements:
 - Install additional tools not included in Ubuntu: sudo apt-get install ripgrep fd-find
-- Check that the following list of tools are installed: git make unzip gcc xclip
+- Check that the following list of tools are installed: sudo apt-get install git make unzip gcc xclip
 - A [Nerd Font](https://www.nerdfonts.com/), provides various icons
 - Language Setup:
   - If you want to write Typescript, you need `npm`
   - If you want to write Golang, you will need `go`
-  - etc.
 
-### Install Kickstart
+### Install configure-nvim
 
 > [!NOTE]
 > [Backup](#FAQ) your previous configuration (if any exists)
@@ -34,21 +33,14 @@ Neovim's configurations are located:
 so that you have your own copy that you can modify, then install by cloning the
 fork to your machine.
 
-> [!NOTE]
-> Your fork's URL:
-> `https://github.com/<your_github_username>/kickstart.nvim`
-
 You should remove `lazy-lock.json` from your fork's `.gitignore` file
 too [recommended to track it in version control](https://lazy.folke.io/usage/lockfile).
 
-#### Clone kickstart.nvim
+#### Clone the repository to configure nvim
 
 ```sh
-git clone https://github.com/<your_github_username>/kickstart.nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/<your_github_username>/configure-nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
-### Post Installation
-
-Start Neovim
 
 ### Questions
 
@@ -66,5 +58,3 @@ Start Neovim
     When you run Neovim using `nvim-kickstart` alias it will use the alternative
     config directory and the matching local directory
     `~/.local/share/nvim-kickstart`.
-* What if I want to "uninstall" this configuration:
-  * See [lazy.nvim uninstall](https://lazy.folke.io/usage#-uninstalling) information
