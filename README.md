@@ -1,6 +1,6 @@
 # configure-nvim
 
-Fork of kickstart.nvim, for Ubuntu with vim-plug instead of Lazy.
+Fork of kickstart.nvim, for Ubuntu.
 
 ## Installation
 
@@ -19,13 +19,6 @@ Requirements:
   - If you want to write Golang, you will need `go`
 
 ### Install configure-nvim
-
-> [!NOTE]
-> [Backup](#FAQ) your previous configuration (if any exists)
-
-Neovim's configurations are located:
-
-`~/.config/nvim`
 
 #### Recommended
 
