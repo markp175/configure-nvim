@@ -268,12 +268,6 @@ require('lazy').setup({
     opts = {},
   },
   {
-    -- See `:help ibl`
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {},
-  },
-  {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
   dependencies = {
@@ -356,7 +350,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout:
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
+          winblend = 0,
           previewer = false,
         })
       end, { desc = '[/] Fuzzily search in current buffer' })
