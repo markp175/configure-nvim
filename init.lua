@@ -163,10 +163,10 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Some terminals have colliding keymaps or are not able to send distinct keycodes
--- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
--- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
--- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
--- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+-- vim.keymap.set('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
+-- vim.keymap.set('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
+-- vim.keymap.set('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
+-- vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
 -- See `:help lazy.nvim.txt`
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -256,7 +256,7 @@ require('lazy').setup({
       end,
     },
   },
-  -- Plugins can also be configured to run Lua code when they are loaded using event = 'VimEnter',
+  -- Plugins can be configured to run Lua code when they are loaded using event = 'VimEnter',
   -- this loads the plugin before the UI elements are loaded. Events can be
   -- normal autocommands events (`:help autocmd-events`).
 --  {
@@ -360,8 +360,8 @@ require('lazy').setup({
           previewer = false,
         })
       end, { desc = '[/] Fuzzily search in current buffer' })
-      -- It's also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
+      -- It is possible to pass additional configuration options.
+      -- See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set('n', '<leader>s/', function()
         builtin.live_grep {
           grep_open_files = true,
@@ -386,8 +386,7 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- LSP stands for Language Server Protocol.
-      -- Automatically install LSPs and related tools to stdpath
+      -- LSP stands for Language Server Protocol. Mason automatically install LSPs and related tools to stdpath.
       -- `opts = {}` is the same as calling `require('mason').setup({})`
       { 'mason-org/mason.nvim', opts = {} },
       'mason-org/mason-lspconfig.nvim',
@@ -409,32 +408,22 @@ require('lazy').setup({
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          -- Rename the variable under your cursor.
+          -- Rename the variable under the cursor.
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-
           -- Go to a code action, the cursor needs to be on top of an error
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
-
           -- Find references for the word under the cursor.
           map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-
           -- Jump to the implementation of the word under the cursor.
           map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-
           -- Jump to the definition of the word under the cursor. To jump back, press <C-t>.
           map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-
           -- Jump to the type of the word under the cursor.
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
-
-          --  In C this would go to the header.
+          --  Go to declaration, e.g. in C this would go to the header.
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
           -- Fuzzy find the symbols in the document. Symbols are variables, functions, types, etc.
           map('gS', require('telescope.builtin').lsp_document_symbols, 'Open Document [S]ymbols')
-
-          -- Fuzzy find the symbols in the current workspace.
-          map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open [W]orkspace Symbols')
 
           -- The following two autocommands are used to highlight references of the
           -- word under the cursor when the cursor rests there for a while.
@@ -582,10 +571,10 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially e.g.
-        -- python = { "isort", "black" },
+        -- python = { 'isort', 'black' },
         --
         -- Uuse 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        -- javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
