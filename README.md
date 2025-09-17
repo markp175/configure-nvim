@@ -32,7 +32,7 @@ too [recommended to track it in version control](https://lazy.folke.io/usage/loc
 #### Clone the repository to configure nvim
 
 ```sh
-git clone https://github.com/<your_github_username>/configure-nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/markp175/configure-nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 ### Questions
