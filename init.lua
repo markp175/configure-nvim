@@ -13,37 +13,37 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Adjust the width of the left hand number line, 3 is quite small:
-vim.o.numberwidth = "3"
+vim.o.numberwidth = '3'
 
 -- Don't show the mode, since it's already in the status line.
 vim.o.showmode = false
 
 -- Disable arrow keys and mouse.
-vim.api.nvim_set_keymap( "n", "<up>", "<nop>", { noremap = true }) -- equivalent to: nnoremap <up> <nop>
-vim.api.nvim_set_keymap( "n", "<down>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "n", "<left>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "n", "<right>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "i", "<up>", "<nop>", { noremap = true }) -- equivalent to: inoremap <up> <nop>
-vim.api.nvim_set_keymap( "i", "<down>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "i", "<left>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "i", "<right>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "v", "<up>", "<nop>", { noremap = true }) -- equivalent to: vnoremap <up> <nop>
-vim.api.nvim_set_keymap( "v", "<down>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "v", "<left>", "<nop>", { noremap = true })
-vim.api.nvim_set_keymap( "v", "<right>", "<nop>", { noremap = true })
-vim.o.mouse=
+vim.keymap.set('n', '<up>', '<nop>') -- equivalent to: nnoremap <up> <nop>
+vim.keymap.set('n', '<down>', '<nop>')
+vim.keymap.set('n', '<left>', '<nop>')
+vim.keymap.set('n', '<right>', '<nop>')
+vim.keymap.set('i', '<up>', '<nop>') -- equivalent to: inoremap <up> <nop>
+vim.keymap.set('i', '<down>', '<nop>')
+vim.keymap.set('i', '<left>', '<nop>')
+vim.keymap.set('i', '<right>', '<nop>')
+vim.keymap.set('v', '<up>', '<nop>') -- equivalent to: vnoremap <up> <nop>
+vim.keymap.set('v', '<down>', '<nop>')
+vim.keymap.set('v', '<left>', '<nop>')
+vim.keymap.set('v', '<right>', '<nop>')
+vim.o.mouse = false
 
-vim.o.encoding="utf-8"
-vim.o.fileencoding="utf-8"
+vim.o.encoding = 'utf-8'
+vim.o.fileencoding = 'utf-8'
 
 -- Enable line wrapping behaviour with the h and l keys.
-vim.opt.whichwrap:append { "h", "l" }
+vim.opt.whichwrap:append { 'h', 'l' }
 
 -- Turn on the ruler to show line and column position.
 vim.o.ruler = true
 
 -- Treat dash-separated words as a single word object.
-vim.opt.iskeyword:append { "-" }
+vim.opt.iskeyword:append { '-' }
 
 -- This enables horizontal spits in the interface to appear below the current window.
 -- vim.o.splitbelow = true
@@ -54,43 +54,43 @@ vim.o.smartindent = true
 vim.o.autoindent = true
 
 -- Always show the status line.
-vim.o.laststatus = "2"
+vim.o.laststatus = '2'
 
 -- Enable cursor line highlighting.
 vim.o.cursorline = true
 
 -- When multiple tabs are open, show the tabline at the top.
-vim.o.showtabline = "1"
+vim.o.showtabline = '1'
 
 -- Set case insensitive mode, searching for hello will find both hello and Hello.
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Enable spelling suggestions during autocompletion.
-vim.o.spelllang = "en_gb"
-vim.opt.complete:append { "kspell" }
+vim.o.spelllang = 'en_gb'
+vim.opt.complete:append { 'kspell' }
 
 -- Spell checking for certain filetypes. To correct a word, move the cursor to it and press z=
-vim.api.nvim_create_autocmd("BufRead", {
-  pattern = { "*.txt", "*.tex", "*.md" },
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = { '*.txt', '*.tex', '*.md' },
   command = [[ set spell! ]],
 })
-vim.api.nvim_create_autocmd("BufNewFile", {
-  pattern = { "*.txt", "*.tex", "*.md" },
+vim.api.nvim_create_autocmd('BufNewFile', {
+  pattern = { '*.txt', '*.tex', '*.md' },
   command = [[ set spell! ]],
 })
-vim.api.nvim_create_autocmd("BufRead", {
-  pattern = { "*.yaml", "*.yml" },
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = { '*.yaml', '*.yml' },
   callback = function()
     -- In lua, `[[ ... ]]` is a literal string.
-    if vim.fn.search([[hosts:\|tasks:]], "nw") then
-      vim.opt.filetype = "yaml.ansible"
+    if vim.fn.search([[hosts:\|tasks:]], 'nw') then
+      vim.opt.filetype = 'yaml.ansible'
     end
   end
 })
 
 -- Enable autocompletion to choose the longest match first.
-vim.opt.completeopt:append { "longest" }
+vim.opt.completeopt:append { 'longest' }
 
 -- See `:help vim.hl.on_yank()` and `:help lua-guide-autocommands` and `:help lua-guide-autocommand-create`
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -104,9 +104,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd('BufWritePost', {
   desc = 'Perform git add and git commit when saving.',
   group = vim.api.nvim_create_augroup('auto-git', { clear = true }),
-  if vim.fn.isdirectory('/.git') == 1 and os.execute( git rev-parse --git-dir > /dev/null 2>&1 ) then
-    os.execute( git add "%" )
-    os.execute( git commit -m "%" )
+  callback = function()
+    if vim.fn.isdirectory('/.git') == 1 and os.execute( 'git rev-parse --git-dir > /dev/null 2>&1' ) then
+     os.execute( 'git add "%"' )
+     os.execute( 'git commit -m "%"' )
+    end
   end
 })
 
@@ -114,7 +116,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- listchars is set using `vim.opt`, which provides an interface for interacting with tables.
 -- See `:help lua-options` and `:help lua-options-guide`
 vim.o.list = true
-vim.opt.listchars:append = { eol = '↴', tab = '>·', trail = '·' }
+vim.opt.listchars:append { eol = '↴', tab = '>·', trail = '·' }
 
 -- Sync clipboard between OS and Neovim.
 --  See `:help 'clipboard'`
@@ -176,11 +178,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 
-@type vim.Option
+-- @type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require('lazy').setup({
+  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
   -- Plugins are added using a table, the first argument is the link then the keys to configure plugin behavior.
   -- Use `opts = {}` to pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
   -- Alternatively, use `config = function() ... end` for full control over the configuration. E.g.
@@ -196,6 +199,13 @@ require('lazy').setup({
 {
     'lewis6991/gitsigns.nvim',
     opts = {
+        signs = {
+          add = { text = '+' },
+          change = { text = '~' },
+          delete = { text = '_' },
+          topdelete = { text = '‾' },
+          changedelete = { text = '~' },
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -251,18 +261,18 @@ require('lazy').setup({
   -- normal autocommands events (`:help autocmd-events`).
 --  {
 --    'tpope/vim-sensible',
---  }
+--  },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     opts = {},
-  }
+  },
   {
     -- See `:help ibl`
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     opts = {},
-  }
+  },
   {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
@@ -284,7 +294,7 @@ require('lazy').setup({
       },
     },
   },
-  }
+  },
   {
     'folke/which-key.nvim',
     event = 'VimEnter',
@@ -642,7 +652,7 @@ require('lazy').setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
-  }
+  },
 --  {
     -- 'echasnovski/mini.nvim',
     -- config = function()
@@ -677,8 +687,7 @@ require('lazy').setup({
     --  Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --  Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
-  -- Uncomment to add custom plugins (for programming) in `lua/custom/plugins/*.lua`:
-  -- { import = 'custom.plugins' },
+  -- Uncomment to add custom plugins (for programming) in `lua/custom/plugins/*.lua`: { import = 'custom.plugins' },
 }, {
   ui = {
     icons = vim.g.have_nerd_font {}
