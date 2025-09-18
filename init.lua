@@ -197,6 +197,9 @@ require('lazy').setup({
   --    }
   -- Help: `<space>sh` then `lazy.nvim-plugin`, `<space>sr` resumes the last telescope search.
 {
+    "let-def/texpresso.vim", -- install neovim TeXpresso plugin.
+},
+{
     'lewis6991/gitsigns.nvim',
     opts = {
         signs = {
@@ -630,7 +633,15 @@ require('lazy').setup({
     'polirritmico/monokai-nightasty.nvim',
     lazy = false,
     priority = 1000, -- Load before the other plugins start.
-    vim.cmd.colorscheme 'monokai-nightasty'
+    opts = {
+     markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
+     terminal_colors = function(colors) return { fg = colors.fg_dark } end,
+    },
+    config = function(_, opts)
+      vim.opt.cursorline = true -- Highlight line at the cursor position
+      require("monokai-nightasty").load(opts)
+    end,
+}
   },
   {
     'nvim-lualine/lualine.nvim',
