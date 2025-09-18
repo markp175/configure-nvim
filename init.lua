@@ -197,7 +197,7 @@ require('lazy').setup({
   --    }
   -- Help: `<space>sh` then `lazy.nvim-plugin`, `<space>sr` resumes the last telescope search.
 {
-    "let-def/texpresso.vim", -- install neovim TeXpresso plugin.
+    'let-def/texpresso.vim', -- install neovim TeXpresso plugin.
 },
 {
     'lewis6991/gitsigns.nvim',
@@ -265,6 +265,9 @@ require('lazy').setup({
 --  {
 --    'tpope/vim-sensible',
 --  },
+  {
+    'tpope/vim-commentary', -- use gcc to comment out a line or gcap to comment out a paragraph.
+  },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
@@ -639,9 +642,8 @@ require('lazy').setup({
     },
     config = function(_, opts)
       vim.opt.cursorline = true -- Highlight line at the cursor position
-      require("monokai-nightasty").load(opts)
+      require('monokai-nightasty').load(opts)
     end,
-}
   },
   {
     'nvim-lualine/lualine.nvim',
