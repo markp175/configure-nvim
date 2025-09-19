@@ -624,26 +624,26 @@ require('lazy').setup({
       signature = { enabled = true }, -- Shows a signature help window while you type arguments for a function
     },
   },
-  {
+  -- {
     -- Colorscheme plugin.
-    'polirritmico/monokai-nightasty.nvim',
-    lazy = false,
-    priority = 1000,               -- Load before the other plugins start.
-    opts = {
-      markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
-      terminal_colors = function(colors) return { fg = colors.fg_dark } end,
-      hl_styles = {
-        keywords = { italic = false },
-        comments = { italic = false },
-        functions = { italic = false },
-        variables = { italic = false },
-      },
-    },
-    config = function(_, opts)
-      vim.opt.cursorline = true -- Highlight line at the cursor position
-      require('monokai-nightasty').load(opts)
-    end,
-  },
+    -- 'polirritmico/monokai-nightasty.nvim',
+    -- lazy = false,
+    -- priority = 1000,               -- Load before the other plugins start.
+    -- opts = {
+      -- markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
+      -- terminal_colors = function(colors) return { fg = colors.fg_dark } end,
+      -- hl_styles = {
+        -- keywords = { italic = false },
+        -- comments = { italic = false },
+        -- functions = { italic = false },
+        -- variables = { italic = false },
+      -- },
+    -- },
+    -- config = function(_, opts)
+      -- vim.opt.cursorline = true -- Highlight line at the cursor position
+      -- require('monokai-nightasty').load(opts)
+    -- end,
+  -- },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
