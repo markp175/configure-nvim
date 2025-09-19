@@ -645,7 +645,7 @@ require('lazy').setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    require('lualine').setup()
+--    require('lualine').setup()
   },
 --  {
     -- 'echasnovski/mini.nvim',
