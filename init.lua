@@ -140,7 +140,7 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- Set default colorscheme:
-vim.o.colorscheme = Default
+vim.cmd ([[colorscheme Default]])
 
 -- Clear highlights on search when pressing <Esc> in normal mode see `:help hlsearch`
 -- See `:help vim.keymap.set()`
