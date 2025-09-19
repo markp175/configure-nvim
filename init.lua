@@ -60,7 +60,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Enable spelling suggestions during autocompletion.
-vim.o.spelllang = en_gb
+vim.o.spelllang = 'en_gb'
 vim.opt.complete:append { 'kspell' }
 
 -- Spell checking for certain filetypes. To correct a word, move the cursor to it and press z=
@@ -130,7 +130,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Preview substitutions live, as you type.
-vim.o.inccommand = split
+vim.o.inccommand = 'split'
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
@@ -418,6 +418,9 @@ require('lazy').setup({
           -- Fuzzy find the symbols in the document. Symbols are variables, functions, types, etc.
           map('gS', require('telescope.builtin').lsp_document_symbols, 'Open Document [S]ymbols')
 
+          local function client_supports_method(client, method, bufnr)
+            return client:supports_method(method, bufnr)
+          end
           -- The following two autocommands are used to highlight references of the
           -- word under the cursor when the cursor rests there for a while.
           -- See `:help CursorHold`.
@@ -494,7 +497,7 @@ require('lazy').setup({
         texlab = {},    -- TeX
         bashls = {},    -- bash script
         gopls = {},     -- go
-        yang_lsp = {},   -- yang
+        yang_lsp = {},  -- yang
         ansiblels = {}, -- ansible
         lua_ls = {      -- lua_ls: https://luals.github.io/wiki/settings/
           -- cmd = { ... },
@@ -625,24 +628,24 @@ require('lazy').setup({
     },
   },
   -- {
-    -- Colorscheme plugin.
-    -- 'polirritmico/monokai-nightasty.nvim',
-    -- lazy = false,
-    -- priority = 1000,               -- Load before the other plugins start.
-    -- opts = {
-      -- markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
-      -- terminal_colors = function(colors) return { fg = colors.fg_dark } end,
-      -- hl_styles = {
-        -- keywords = { italic = false },
-        -- comments = { italic = false },
-        -- functions = { italic = false },
-        -- variables = { italic = false },
-      -- },
-    -- },
-    -- config = function(_, opts)
-      -- vim.opt.cursorline = true -- Highlight line at the cursor position
-      -- require('monokai-nightasty').load(opts)
-    -- end,
+  -- Colorscheme plugin.
+  -- 'polirritmico/monokai-nightasty.nvim',
+  -- lazy = false,
+  -- priority = 1000,               -- Load before the other plugins start.
+  -- opts = {
+  -- markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
+  -- terminal_colors = function(colors) return { fg = colors.fg_dark } end,
+  -- hl_styles = {
+  -- keywords = { italic = false },
+  -- comments = { italic = false },
+  -- functions = { italic = false },
+  -- variables = { italic = false },
+  -- },
+  -- },
+  -- config = function(_, opts)
+  -- vim.opt.cursorline = true -- Highlight line at the cursor position
+  -- require('monokai-nightasty').load(opts)
+  -- end,
   -- },
   {
     'nvim-lualine/lualine.nvim',
