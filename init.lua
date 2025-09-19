@@ -36,9 +36,6 @@ vim.o.mouse = ''
 vim.o.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
 
--- Enable line wrapping behaviour with the h and l keys.
-vim.opt.whichwrap:append { 'h', 'l' }
-
 -- Turn on the ruler to show line and column position.
 vim.o.ruler = true
 
