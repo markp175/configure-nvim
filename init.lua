@@ -33,8 +33,8 @@ vim.keymap.set('v', '<left>', '<nop>')
 vim.keymap.set('v', '<right>', '<nop>')
 vim.o.mouse = ''
 
-vim.o.encoding = utf-8
-vim.o.fileencoding = utf-8
+vim.o.encoding = 'utf-8'
+vim.o.fileencoding = 'utf-8'
 
 -- Enable line wrapping behaviour with the h and l keys.
 vim.opt.whichwrap:append { 'h', 'l' }
