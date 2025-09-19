@@ -31,7 +31,7 @@ vim.keymap.set('v', '<up>', '<nop>') -- equivalent to: vnoremap <up> <nop>
 vim.keymap.set('v', '<down>', '<nop>')
 vim.keymap.set('v', '<left>', '<nop>')
 vim.keymap.set('v', '<right>', '<nop>')
-vim.o.mouse = false
+vim.o.mouse = ''
 
 vim.o.encoding = utf-8
 vim.o.fileencoding = utf-8
