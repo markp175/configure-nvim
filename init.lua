@@ -98,9 +98,9 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   desc = 'Perform git add and git commit when saving.',
   group = vim.api.nvim_create_augroup('auto-git', { clear = true }),
   callback = function()
-    if vim.fn.isdirectory('/.git') == 1 and os.execute( 'git rev-parse --git-dir > /dev/null 2>&1' ) then
-     os.execute( 'git add "%"' )
-     os.execute( 'git commit -m "%"' )
+    if vim.fn.isdirectory('/.git') == 1 and os.execute('git rev-parse --git-dir > /dev/null 2>&1') then
+      os.execute('git add "%"')
+      os.execute('git commit -m "%"')
     end
   end
 })
@@ -189,18 +189,18 @@ require('lazy').setup({
   --        end,
   --    }
   -- Help: `<space>sh` then `lazy.nvim-plugin`, `<space>sr` resumes the last telescope search.
-{
+  {
     'let-def/texpresso.vim', -- install neovim TeXpresso plugin.
-},
-{
+  },
+  {
     'lewis6991/gitsigns.nvim',
     opts = {
-        signs = {
-          add = { text = '+' },
-          change = { text = '~' },
-          delete = { text = '_' },
-          topdelete = { text = '‾' },
-          changedelete = { text = '~' },
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
@@ -255,9 +255,9 @@ require('lazy').setup({
   -- Plugins can be configured to run Lua code when they are loaded using event = 'VimEnter',
   -- this loads the plugin before the UI elements are loaded. Events can be
   -- normal autocommands events (`:help autocmd-events`).
---  {
---    'tpope/vim-sensible',
---  },
+  --  {
+  --    'tpope/vim-sensible',
+  --  },
   {
     'tpope/vim-commentary', -- use gcc to comment out a line or gcap to comment out a paragraph.
   },
@@ -267,26 +267,26 @@ require('lazy').setup({
     opts = {},
   },
   {
-  'nvim-neo-tree/neo-tree.nvim',
-  version = '*',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
-  },
-  lazy = false,
-  keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-  },
-  opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
+    'nvim-neo-tree/neo-tree.nvim',
+    version = '*',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+    },
+    lazy = false,
+    keys = {
+      { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    },
+    opts = {
+      filesystem = {
+        window = {
+          mappings = {
+            ['\\'] = 'close_window',
+          },
         },
       },
     },
-  },
   },
   {
     'folke/which-key.nvim',
@@ -311,7 +311,7 @@ require('lazy').setup({
       'nvim-lua/plenary.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make', -- build runs command when the plugin is installed or updated.
+        build = 'make',   -- build runs command when the plugin is installed or updated.
         cond = function() -- cond is a condition to determine if this plugin should be installed.
           return vim.fn.executable 'make' == 1
         end,
@@ -384,7 +384,7 @@ require('lazy').setup({
       { 'mason-org/mason.nvim', opts = {} },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      { 'j-hui/fidget.nvim', opts = {} }, -- Useful status updates for LSPs.
+      { 'j-hui/fidget.nvim',    opts = {} }, -- Useful status updates for LSPs.
       'saghen/blink.cmp',
     },
     config = function()
@@ -490,13 +490,13 @@ require('lazy').setup({
         --  capabilities (table): Override fields in capabilities.
         --  settings (table): Override the default settings passed when initializing the server.
         -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        ts_ls = {}, -- typescript
-        texlab = {}, -- TeX
-        bashls = {}, -- bash script
-        gopls = {}, -- go
-        yanglsp = {}, -- yang
+        ts_ls = {},     -- typescript
+        texlab = {},    -- TeX
+        bashls = {},    -- bash script
+        gopls = {},     -- go
+        yanglsp = {},   -- yang
         ansiblels = {}, -- ansible
-        lua_ls = { -- lua_ls: https://luals.github.io/wiki/settings/
+        lua_ls = {      -- lua_ls: https://luals.github.io/wiki/settings/
           -- cmd = { ... },
           settings = {
             Lua = {
@@ -628,14 +628,16 @@ require('lazy').setup({
     -- Colorscheme plugin.
     'polirritmico/monokai-nightasty.nvim',
     lazy = false,
-    priority = 1000, -- Load before the other plugins start.
+    priority = 1000,               -- Load before the other plugins start.
     opts = {
-     markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
-     terminal_colors = function(colors) return { fg = colors.fg_dark } end,
-    hl_styles = {
-      keywords = { italic = false },
-      comments = { italic = false },
-    },
+      markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
+      terminal_colors = function(colors) return { fg = colors.fg_dark } end,
+      hl_styles = {
+        keywords = { italic = false },
+        comments = { italic = false },
+        functions = { italic = false },
+        variables = { italic = false },
+      },
     },
     config = function(_, opts)
       vim.opt.cursorline = true -- Highlight line at the cursor position
@@ -645,22 +647,22 @@ require('lazy').setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
---    require('lualine').setup()
+    --    require('lualine').setup()
   },
---  {
-    -- 'echasnovski/mini.nvim',
-    -- config = function()
-      -- va)  - [V]isually select [A]round [)]paren
-      -- yinq - [Y]ank [I]nside [N]ext [Q]uote
-      -- ci'  - [C]hange [I]nside [']quote
-    -- require('mini.ai').setup { n_lines = 500 }
-      -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      -- saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- sd'   - [S]urround [D]elete [']quotes
-      -- sr)'  - [S]urround [R]eplace [)] [']
-    -- require('mini.surround').setup()
-    -- end,
---  },
+  --  {
+  -- 'echasnovski/mini.nvim',
+  -- config = function()
+  -- va)  - [V]isually select [A]round [)]paren
+  -- yinq - [Y]ank [I]nside [N]ext [Q]uote
+  -- ci'  - [C]hange [I]nside [']quote
+  -- require('mini.ai').setup { n_lines = 500 }
+  -- Add/delete/replace surroundings (brackets, quotes, etc.)
+  -- saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+  -- sd'   - [S]urround [D]elete [']quotes
+  -- sr)'  - [S]urround [R]eplace [)] [']
+  -- require('mini.surround').setup()
+  -- end,
+  --  },
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
