@@ -3,10 +3,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Set to true if you have a 'Nerd Font' installed and in use by the terminal.
--- This sets up a variable, used later in this file.
-vim.g.have_nerd_font = true
-
 -- Show line numbers.
 -- See `:help vim.o` and `:help option-list`
 vim.o.number = true
@@ -299,7 +295,7 @@ require('lazy').setup({
       delay = 0, -- delay between pressing a key and opening which-key (milliseconds)
       icons = {
         mappings = false
-        -- keys = vim.g.have_nerd_font {}
+        -- keys = {} -- enable for nerd font keys.
       },
       spec = {
         { '<leader>s', group = '[S]earch' },
@@ -460,7 +456,7 @@ require('lazy').setup({
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
-        signs = vim.g.have_nerd_font and {
+        signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
             [vim.diagnostic.severity.WARN] = '󰀪 ',
@@ -684,7 +680,7 @@ require('lazy').setup({
   -- Uncomment to add custom plugins (for programming) in `lua/custom/plugins/*.lua`: { import = 'custom.plugins' },
 }, {
   ui = {
-    icons = vim.g.have_nerd_font {}
+    icons = {} -- set to empty table.
   },
 })
 
