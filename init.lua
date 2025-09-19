@@ -139,9 +139,6 @@ vim.o.scrolloff = 10
 -- open a dialog asking if you wish to save the current file(s). See `:help 'confirm'`
 vim.o.confirm = true
 
--- Set default colorscheme:
-vim.cmd ([[colorscheme Default]])
-
 -- Clear highlights on search when pressing <Esc> in normal mode see `:help hlsearch`
 -- See `:help vim.keymap.set()`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
