@@ -632,6 +632,10 @@ require('lazy').setup({
     opts = {
      markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
      terminal_colors = function(colors) return { fg = colors.fg_dark } end,
+    hl_styles = {
+      keywords = { italic = false },
+      comments = { italic = false },
+    },
     },
     config = function(_, opts)
       vim.opt.cursorline = true -- Highlight line at the cursor position
