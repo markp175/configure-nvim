@@ -497,7 +497,7 @@ require('lazy').setup({
         texlab = {},    -- TeX
         bashls = {},    -- bash script
         gopls = {},     -- go
-        yang-lsp = {},  -- yang
+        yang_lsp = {},  -- yang
         ansiblels = {}, -- ansible
         lua_ls = {      -- lua_ls: https://luals.github.io/wiki/settings/
           -- cmd = { ... },
