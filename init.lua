@@ -13,7 +13,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Adjust the width of the left hand number line, 3 is quite small:
-vim.o.numberwidth = '3'
+vim.o.numberwidth = 3
 
 -- Don't show the mode, since it's already in the status line.
 vim.o.showmode = false
@@ -33,8 +33,8 @@ vim.keymap.set('v', '<left>', '<nop>')
 vim.keymap.set('v', '<right>', '<nop>')
 vim.o.mouse = false
 
-vim.o.encoding = 'utf-8'
-vim.o.fileencoding = 'utf-8'
+vim.o.encoding = utf-8
+vim.o.fileencoding = utf-8
 
 -- Enable line wrapping behaviour with the h and l keys.
 vim.opt.whichwrap:append { 'h', 'l' }
@@ -54,20 +54,20 @@ vim.o.smartindent = true
 vim.o.autoindent = true
 
 -- Always show the status line.
-vim.o.laststatus = '2'
+vim.o.laststatus = 2
 
 -- Enable cursor line highlighting.
 vim.o.cursorline = true
 
 -- When multiple tabs are open, show the tabline at the top.
-vim.o.showtabline = '1'
+vim.o.showtabline = 1
 
 -- Set case insensitive mode, searching for hello will find both hello and Hello.
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Enable spelling suggestions during autocompletion.
-vim.o.spelllang = 'en_gb'
+vim.o.spelllang = en_gb
 vim.opt.complete:append { 'kspell' }
 
 -- Spell checking for certain filetypes. To correct a word, move the cursor to it and press z=
@@ -137,7 +137,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Preview substitutions live, as you type.
-vim.o.inccommand = 'split'
+vim.o.inccommand = split
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
