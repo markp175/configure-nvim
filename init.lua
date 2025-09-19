@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd('BufRead', {
     if vim.fn.search([[hosts:\|tasks:]], 'nw') then
       vim.opt.filetype = 'yaml.ansible'
     end
-  end
+  end,
 })
 
 -- Enable autocompletion to choose the longest match first.
@@ -98,11 +98,11 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   desc = 'Perform git add and git commit when saving.',
   group = vim.api.nvim_create_augroup('auto-git', { clear = true }),
   callback = function()
-    if vim.fn.isdirectory('/.git') == 1 and os.execute('git rev-parse --git-dir > /dev/null 2>&1') then
-      os.execute('git add "%"')
-      os.execute('git commit -m "%"')
+    if vim.fn.isdirectory '/.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
+      os.execute 'git add "%"'
+      os.execute 'git commit -m "%"'
     end
-  end
+  end,
 })
 
 -- See `:help 'list'` and `:help 'listchars'`
@@ -294,7 +294,7 @@ require('lazy').setup({
     opts = {
       delay = 0, -- delay between pressing a key and opening which-key (milliseconds)
       icons = {
-        mappings = false
+        mappings = false,
         -- keys = {} -- enable for nerd font keys.
       },
       spec = {
@@ -311,7 +311,7 @@ require('lazy').setup({
       'nvim-lua/plenary.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',   -- build runs command when the plugin is installed or updated.
+        build = 'make', -- build runs command when the plugin is installed or updated.
         cond = function() -- cond is a condition to determine if this plugin should be installed.
           return vim.fn.executable 'make' == 1
         end,
@@ -384,7 +384,7 @@ require('lazy').setup({
       { 'mason-org/mason.nvim', opts = {} },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      { 'j-hui/fidget.nvim',    opts = {} }, -- Useful status updates for LSPs.
+      { 'j-hui/fidget.nvim', opts = {} }, -- Useful status updates for LSPs.
       'saghen/blink.cmp',
     },
     config = function()
@@ -493,13 +493,13 @@ require('lazy').setup({
         --  capabilities (table): Override fields in capabilities.
         --  settings (table): Override the default settings passed when initializing the server.
         -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        ts_ls = {},     -- typescript
-        texlab = {},    -- TeX
-        bashls = {},    -- bash script
-        gopls = {},     -- go
-        yamlls = {},    -- yaml
+        ts_ls = {}, -- typescript
+        texlab = {}, -- TeX
+        bashls = {}, -- bash script
+        gopls = {}, -- go
+        yamlls = {}, -- yaml
         ansiblels = {}, -- ansible
-        lua_ls = {      -- lua_ls: https://luals.github.io/wiki/settings/
+        lua_ls = { -- lua_ls: https://luals.github.io/wiki/settings/
           -- cmd = { ... },
           settings = {
             Lua = {
@@ -627,31 +627,10 @@ require('lazy').setup({
       signature = { enabled = true }, -- Shows a signature help window while you type arguments for a function
     },
   },
-  -- {
-  -- Colorscheme plugin.
-  -- 'polirritmico/monokai-nightasty.nvim',
-  -- lazy = false,
-  -- priority = 1000,               -- Load before the other plugins start.
-  -- opts = {
-  -- markdown_header_marks = true, -- Highlights (the `#` character) to Treesitter highlight query
-  -- terminal_colors = function(colors) return { fg = colors.fg_dark } end,
-  -- hl_styles = {
-  -- keywords = { italic = false },
-  -- comments = { italic = false },
-  -- functions = { italic = false },
-  -- variables = { italic = false },
-  -- },
-  -- },
-  -- config = function(_, opts)
-  -- vim.opt.cursorline = true -- Highlight line at the cursor position
-  -- require('monokai-nightasty').load(opts)
-  -- end,
-  -- },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
-    --    require('lualine').setup()
   },
   --  {
   -- 'echasnovski/mini.nvim',
@@ -673,7 +652,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs',
     -- See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'latex', 'bibtex', },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'latex', 'bibtex' },
       auto_install = true,
       highlight = {
         enable = true,
@@ -687,10 +666,11 @@ require('lazy').setup({
     --  Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --  Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
-  -- Uncomment to add custom plugins (for programming) in `lua/custom/plugins/*.lua`: { import = 'custom.plugins' },
+  -- Uncomment to add custom plugins (for programming) in `lua/custom/plugins/*.lua`:
+  -- { import = 'custom.plugins' },
 }, {
   ui = {
-    icons = {} -- set to empty table.
+    icons = {}, -- set to empty table.
   },
 })
 
