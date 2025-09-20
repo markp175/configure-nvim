@@ -680,8 +680,8 @@ require('lazy').setup({
   },
 })
 
-vim.cmd [[colorscheme moonfly]]
 vim.g.moonflyItalics = false
+vim.cmd [[colorscheme default]]
 
 -- See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
