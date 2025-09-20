@@ -666,12 +666,12 @@ require('lazy').setup({
     --  Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --  Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
-  {
-    'bluz71/vim-moonfly-colors',
-    name = 'moonfly',
-    lazy = false,
-    priority = 1000,
-  },
+  -- {
+  -- 'bluz71/vim-moonfly-colors', -- alternative colour scheme, if needed
+  -- name = 'moonfly',
+  -- lazy = false,
+  -- priority = 1000,
+  -- },
   -- Uncomment to add custom plugins (for programming) in `lua/custom/plugins/*.lua`:
   -- { import = 'custom.plugins' },
 }, {
@@ -680,7 +680,7 @@ require('lazy').setup({
   },
 })
 
-vim.g.moonflyItalics = false
+-- vim.g.moonflyItalics = false
 vim.cmd [[colorscheme default]]
 
 -- See `:help modeline`
