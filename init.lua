@@ -181,10 +181,10 @@ require('lazy').setup({
   -- Use `opts = {}` to pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
   -- Alternatively, use `config = function() ... end` for full control over the configuration. E.g.
   --    {
-  --        'lewis6991/gitsigns.nvim',
+  --        'project/plugin_name',
   --        config = function()
-  --            require('gitsigns').setup({
-  --                -- gitsigns configuration here
+  --            require('plugin_name').setup({
+  --                -- configuration
   --            })
   --        end,
   --    }
@@ -253,13 +253,13 @@ require('lazy').setup({
     },
   },
   -- Plugins can be configured to run Lua code when they are loaded using event = 'VimEnter',
-  -- this loads the plugin before the UI elements are loaded. Events can be
-  -- normal autocommands events (`:help autocmd-events`).
+  -- this loads the plugin before the UI elements are loaded. Events can be normal
+  -- autocommands events (`:help autocmd-events`).
   --  {
   --    'tpope/vim-sensible',
   --  },
   {
-    'tpope/vim-commentary', -- use gcc to comment out a line or gcap to comment out a paragraph.
+    'tpope/vim-commentary', -- use `gcc` to comment out a line or `gcap` to comment out a paragraph.
   },
   {
     'windwp/nvim-autopairs',
@@ -292,7 +292,7 @@ require('lazy').setup({
     'folke/which-key.nvim',
     event = 'VimEnter',
     opts = {
-      delay = 0, -- delay between pressing a key and opening which-key (milliseconds)
+      delay = 10, -- delay between pressing a key and opening which-key (milliseconds)
       icons = {
         mappings = false,
         -- keys = {} -- enable for nerd font keys.
