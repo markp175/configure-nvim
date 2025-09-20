@@ -98,10 +98,11 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   desc = 'Perform git add and git commit when saving.',
   group = vim.api.nvim_create_augroup('auto-git', { clear = true }),
   callback = function()
-    if vim.fn.isdirectory '/.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
-      os.execute 'git add "%"'
-      os.execute 'git commit -m "%"'
-    end
+    print 'saved a file'
+    -- if vim.fn.isdirectory '/.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
+    -- os.execute 'git add "%"'
+    -- os.execute 'git commit -m "%"'
+    -- end
   end,
 })
 
