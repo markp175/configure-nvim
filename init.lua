@@ -97,12 +97,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd('BufWritePost', {
   desc = 'Perform git add and git commit when saving.',
   group = vim.api.nvim_create_augroup('auto-git', { clear = true }),
+  pattern = '*',
   callback = function()
-    print 'saved a file'
-    -- if vim.fn.isdirectory '/.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
-    -- os.execute 'git add "%"'
-    -- os.execute 'git commit -m "%"'
-    -- end
+    -- See :help expand
+    if vim.fn.isdirectory './.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
+      os.execute 'git add %'
+      os.execute 'git commit -m %'
+    end
   end,
 })
 
@@ -148,6 +149,16 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Exit terminal mode with a shortcut. Escape twice is equivalent to ctrl+\ ctrl+n.
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Change the behaviour of line numbers in the terminal.
+vim.api.nvim_create_autocmd('TermOpen', {
+  desc = 'Change line behaviour in the built-in terminal.',
+  group = vim.api.nvim_create_autocmd('term-open', { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
+})
 
 -- Use CTRL+<hjkl> to navigate between windows
 -- See `:help wincmd` for a list of all window commands
