@@ -153,7 +153,7 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- Change the behaviour of line numbers in the terminal.
 vim.api.nvim_create_autocmd('TermOpen', {
   desc = 'Change line behaviour in the built-in terminal.',
-  group = vim.api.nvim_create_autocmd('term-open', { clear = true }),
+  group = vim.api.nvim_create_augroup('term-open', { clear = true }),
   callback = function()
     vim.opt.number = false
     vim.opt.relativenumber = false
