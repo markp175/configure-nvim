@@ -8,7 +8,7 @@ vim.g.maplocalleader = ' '
 vim.o.number = true
 vim.o.relativenumber = true
 
--- Adjust the width of the left hand margin, 4 is the default.
+-- Set the width of the left hand margin, 4 is the default.
 vim.o.numberwidth = 3
 
 -- Don't show the mode, since it's already in the status line.
