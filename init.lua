@@ -8,7 +8,7 @@ vim.g.maplocalleader = ' '
 vim.o.number = true
 vim.o.relativenumber = true
 
--- Adjust the width of the left hand number line, 4 is the default.
+-- Adjust the width of the left hand number margin, 4 is the default.
 vim.o.numberwidth = 3
 
 -- Don't show the mode, since it's already in the status line.
@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   callback = function()
     -- See :help expand
     if vim.fn.isdirectory './.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
-      print 'file name is %'
+      print("file name is "expand(%))
       -- os.execute 'git add %'
       -- os.execute 'git commit -m %'
     end
