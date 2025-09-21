@@ -584,8 +584,11 @@ require('lazy').setup({
         -- Conform can also run multiple formatters sequentially e.g.
         -- python = { 'isort', 'black' },
         --
-        -- Uuse 'stop_after_first' to run the first available formatter from the list
+        -- Use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        ansible = { 'ansible-fix' },
+        yaml = { 'yamlfix' },
+        bash = { 'beautysh' },
       },
     },
   },
