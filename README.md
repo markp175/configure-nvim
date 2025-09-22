@@ -8,7 +8,7 @@ Fork of kickstart.nvim, for Ubuntu.
 
 [stable](https://github.com/neovim/neovim/releases/tag/stable)
 
-### Install External Dependencies
+### Install Dependencies
 
 Requirements:
 - Install additional tools not included in Ubuntu: ```sudo apt-get install ripgrep fd-find```
@@ -18,14 +18,13 @@ Requirements:
   - For Typescript and LaTeX, `npm` is required, ```sudo apt install npm```
   - For tree-sitter and LaTeX `tree-sitter-cli` is required, ```sudo npm install -g tree-sitter-cli```
   - For Golang, `go` is required, ```sudo apt-get install golang-go git```
+  - For TeXpresso, [TeXpresso](https://github.com/let-def/texpresso)
 
 ### Install configure-nvim
 
-[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repo
+[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo
 so that you have your own copy that you can modify, then install by cloning the
 fork to your machine.
-
-#### Clone the repository to configure nvim
 
 ```sh
 git clone https://github.com/markp175/configure-nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
