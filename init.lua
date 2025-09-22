@@ -100,7 +100,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*',
   callback = function()
     if vim.fn.isdirectory './.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
-      -- See :help expand
+      -- See `:help expand` and `: help input`
       local current_file = vim.fn.expand '%'
       print('file name is: ' .. current_file)
       local git_comment = vim.fn.input 'Type git comment: '
