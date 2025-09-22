@@ -1,4 +1,4 @@
--- Set <space> as the leader key
+-- Set <space> as the leader key.
 -- See `:help mapleader`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -100,7 +100,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*',
   callback = function()
     if vim.fn.isdirectory './.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
-      -- See `:help expand` and `: help input`
+      -- See `:help expand` and `:help input`
       local current_file = vim.fn.expand '%'
       print('file name is: ' .. current_file)
       local git_comment = vim.fn.input 'Type git comment: '
@@ -122,16 +122,16 @@ vim.opt.listchars:append { eol = '↴', tab = '>·', trail = '·' }
 --   vim.o.clipboard = 'unnamedplus'
 -- end)
 
--- Enable break indent
+-- Enable break indent.
 vim.o.breakindent = true
 
--- Save undo history
+-- Save undo history.
 vim.o.undofile = true
 
--- Decrease update time
+-- Decrease update time.
 vim.o.updatetime = 250
 
--- Decrease mapped sequence wait time
+-- Decrease mapped sequence wait time.
 vim.o.timeoutlen = 300
 
 -- Preview substitutions live, as you type.
@@ -163,14 +163,14 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
--- Use CTRL+<hjkl> to navigate between windows
+-- Use CTRL+<hjkl> to navigate between windows.
 -- See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Some terminals have colliding keymaps or are not able to send distinct keycodes
+-- Some terminals have colliding keymaps or are not able to send distinct keycodes.
 -- vim.keymap.set('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
 -- vim.keymap.set('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
 -- vim.keymap.set('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
@@ -274,7 +274,7 @@ require('lazy').setup({
   --    'tpope/vim-sensible',
   --  },
   {
-    'tpope/vim-commentary', -- use `gcc` to comment out a line or `gcap` to comment out a paragraph.
+    'tpope/vim-commentary', -- use `gcc` to comment out a line, `gcap` to comment out a paragraph.
   },
   {
     'windwp/nvim-autopairs',
@@ -346,7 +346,7 @@ require('lazy').setup({
           },
         },
       }
-      -- Enable Telescope extensions if they are installed
+      -- Enable Telescope extensions if they are installed.
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       -- See `:help telescope.builtin`
@@ -369,7 +369,7 @@ require('lazy').setup({
         })
       end, { desc = '[/] Fuzzily search in current buffer' })
       -- It is possible to pass additional configuration options.
-      -- See `:help telescope.builtin.live_grep()` for information about particular keys
+      -- See `:help telescope.builtin.live_grep()` for information about particular keys.
       vim.keymap.set('n', '<leader>s/', function()
         builtin.live_grep {
           grep_open_files = true,
@@ -386,7 +386,7 @@ require('lazy').setup({
     ft = 'lua',
     opts = {
       library = {
-        -- Load luvit types when the `vim.uv` word is found
+        -- Load luvit types when the `vim.uv` word is found.
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
       },
     },
@@ -584,7 +584,7 @@ require('lazy').setup({
         -- Conform can also run multiple formatters sequentially e.g.
         -- python = { 'isort', 'black' },
         --
-        -- Use 'stop_after_first' to run the first available formatter from the list
+        -- Use 'stop_after_first' to run the first available formatter from the list.
         -- javascript = { 'prettierd', 'prettier', stop_after_first = true },
         ansible = { 'ansible-fix' },
         yaml = { 'yamlfix' },
@@ -640,9 +640,9 @@ require('lazy').setup({
         },
       },
       snippets = { preset = 'luasnip' },
-      -- See :h blink-cmp-config-fuzzy for more information
+      -- See :h blink-cmp-config-fuzzy for more information.
       fuzzy = { implementation = 'lua' },
-      signature = { enabled = true }, -- Shows a signature help window while you type arguments for a function
+      signature = { enabled = true }, -- Shows a signature help window while you type arguments for a function.
     },
   },
   {
@@ -685,7 +685,7 @@ require('lazy').setup({
     --  Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
   -- {
-  -- 'bluz71/vim-moonfly-colors', -- alternative colour scheme, if needed
+  -- 'bluz71/vim-moonfly-colors', -- alternative colour scheme, if needed.
   -- name = 'moonfly',
   -- lazy = false,
   -- priority = 1000,
