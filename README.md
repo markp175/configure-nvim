@@ -14,9 +14,10 @@ Requirements:
 - Install additional tools not included in Ubuntu: ```sudo apt-get install ripgrep fd-find```
 - Ensure following tools are installed: ```sudo apt-get install git make unzip gcc xclip```
 - A [Nerd Font](https://www.nerdfonts.com/).
-- Language Setup, e.g.
-  - If you want to write Typescript, you need `npm`
-  - If you want to write Golang, you will need `go`
+- Language Setup for LSPs, e.g.
+  - For Typescript and LaTeX, `npm` is required, ```sudo apt install npm```
+  - For tree-sitter and LaTeX `tree-sitter-cli` is required, ```sudo npm install -g tree-sitter-cli```
+  - For Golang, `go` is required, ```sudo apt-get install golang-go git```
 
 ### Install configure-nvim
 
@@ -32,9 +33,8 @@ git clone https://github.com/markp175/configure-nvim "${XDG_CONFIG_HOME:-$HOME/.
 
 ### Recommended
 
-* An existing configuration should be backed up before beginning.
-  * Delete all associated files. This includes init.lua and the Neovim files in `~/.local`
-    delete with `rm -rf ~/.local/share/nvim/`
+* An existing configuration should be backed up before starting.
+* Delete all associated files with `rm -rf ~/.local/share/nvim/` and `rm -rf ~/.config/nvim/`
 * Retaining the existing configuration in parallel, as follows
   * Use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
     to maintain multiple configurations. For example, install the kickstart

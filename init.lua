@@ -95,17 +95,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd('BufWritePost', {
-  desc = 'Perform git add and git commit when saving.',
+  desc = 'Perform git add and git commit when saving if editing a git controlled file.',
   group = vim.api.nvim_create_augroup('auto-git', { clear = true }),
   pattern = '*',
   callback = function()
-    -- See :help expand
     if vim.fn.isdirectory './.git' == 1 and os.execute 'git rev-parse --git-dir > /dev/null 2>&1' then
+      -- See :help expand
       local current_file = vim.fn.expand '%'
-      print 'file name is: '
-      print(current_file)
-      -- os.execute('git add' .. current_file)
-      -- os.execute('git commit -m' .. current_file)
+      print('file name is: ' .. current_file)
+      local git_comment = vim.fn.input 'Type git comment: '
+      os.execute('git add ' .. current_file)
+      os.execute('git commit -m ' .. git_comment)
     end
   end,
 })
